@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins;
+  background: rgb(53, 53, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(49, 40, 40);
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 97vh;
+  justify-content: space-between;
+}
+
+.container {
+  width: 450px;
+  margin: 1.3em auto;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background: rgb(53, 53, 238);
+  box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
+  border-radius: 10px;
+}
+
+.input__container {
+  padding: 12px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input__container input {
+  outline: none;
+  border: none;
+  background: rgb(53, 53, 238);
+  border-bottom: 1px solid rgb(4, 4, 165);
+  padding: 5px;
+  color: rgb(49, 40, 40);
+}
+
+.input__container label {
+  font-size: 18px;
+}
+
+.input__container button {
+  outline: none;
+  border: none;
+  background: rgb(53, 53, 238);
+  box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
+  padding: 8px 3px;
+  margin-left: 2px;
+  color: rgb(49, 40, 40);
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.input__container button:active {
+  cursor: pointer;
+  background: rgb(4, 4, 165);
+}
+
+.input__container button:hover {
+  cursor: pointer;
+  background: rgb(4, 4, 165);
+}
+
+.img__container {
+  width: 120px;
+  height: 120px;
+}
+
+main {
+  background: rgb(219, 205, 205);
+  color: rgb(1, 1, 110);
+  border-radius: 15px 15px 8px 8px;
+  padding: 10px;
+}
+
+.flex__display {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+  .flex__display{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+  }
+}
