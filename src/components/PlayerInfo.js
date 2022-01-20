@@ -134,7 +134,7 @@ const PlayerInfo = () => {
               ) : null}
               {playInNba ? (
                 <p style={{ color: "rgb(114, 4, 4)" }}>
-                  Did not participate in 2021/2022 NBA season.
+                  Player did not participate in 2021/2022 NBA season.
                 </p>
               ) : null}
               {isFullname ? (

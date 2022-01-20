@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(49, 40, 40);
+  color: white;
 }
 
 .main__container {
@@ -48,7 +48,7 @@ body {
   background: rgb(53, 53, 238);
   border-bottom: 1px solid rgb(4, 4, 165);
   padding: 5px;
-  color: rgb(49, 40, 40);
+  color: white;
 }
 
 .input__container label {
@@ -62,7 +62,7 @@ body {
   box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
   padding: 8px 3px;
   margin-left: 2px;
-  color: rgb(49, 40, 40);
+  color: white;
   border-radius: 5px;
   font-weight: 600;
 }
@@ -98,7 +98,7 @@ main {
 
 @media (max-width: 600px) {
   .container {
-    width: 90%;
+    width: 89%;
   }
 
   .wrapper {
@@ -108,6 +108,9 @@ main {
   .flex__display{
       display: flex;
       flex-direction: column;
-      gap: 1em;
+  }
+
+  .flex__display div{
+      margin-bottom: .6em;
   }
 }
