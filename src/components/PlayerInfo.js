@@ -4,11 +4,20 @@ import "./PlayerInfoStyle.css";
 import nbalogo from "./nbalogo.jpg";
 
 const PlayerInfo = () => {
+  //Create states to handle whether the player info and player stats would be displayed
+  const [showInfo, setShowInfo] = useState(false);
+  const [showStats, setShowStats] = useState(false);
+
+  //Create states for the input box and collecting the balldontlie api data
   const [nameInput, setNameInput] = useState("");
+
+  //State for collecting the playerInfo(in getPlayerInfo function)
   const [playerInfo, setPlayerInfo] = useState([]);
+
+  //State for collecting the playerStats(in getPlayerStats function)
   const [playerStats, setPlayerStats] = useState([]);
 
-  //Create states to manage the error messages
+  //Create states to manage the error messages displayed in the UI
   const [isName, setIsName] = useState(false);
   const [isInNba, setIsInNba] = useState(false);
   const [isFullname, setIsFullname] = useState(false);
@@ -16,10 +25,6 @@ const PlayerInfo = () => {
 
   //Create ref for triggering input focus
   const playerRef = useRef(null);
-
-  //Create states to determine whether the player info and player stats would be displayed
-  const [showInfo, setShowInfo] = useState(false);
-  const [showStats, setShowStats] = useState(false);
 
   //Input focus on page load
   useEffect(() => {
@@ -31,24 +36,27 @@ const PlayerInfo = () => {
     axios(`https://www.balldontlie.io/api/v1/players?search=${nameInput}`)
       .then(async (response) => {
         if (response.data.data.length === 0) {
+          setShowInfo(true);
+          setShowStats(true);
           setIsInNba(true);
           setIsFullname(false);
           setIsName(false);
           setPlayInNba(false);
-          setShowInfo(true);
-          setShowStats(true);
         } else if (response.data.data.length > 1) {
           setIsFullname(true);
           setIsName(false);
           setPlayInNba(false);
           setIsInNba(false);
         } else {
-          setPlayerInfo(response.data.data);
-          await getPlayerStats(response.data.data[0].id);
-          setIsInNba(false);
-          setIsFullname(false);
           setShowInfo(false);
           setShowStats(false);
+          setIsInNba(false);
+          setIsFullname(false);
+          //push the data gotten from the api to the playerInfo array
+          setPlayerInfo(response.data.data);
+
+          //Call the getPlayerStats function and pass the getPlayerInfo response as the playerID arguement
+          getPlayerStats(response.data.data[0].id);
         }
       })
       .catch((err) => {
@@ -62,19 +70,19 @@ const PlayerInfo = () => {
     axios(
       `https://www.balldontlie.io/api/v1/season_averages?season=2021&player_ids[]=${playerID}`
     )
-      .then(async (response) => {
+      .then((response) => {
         if (response.data.data[0] === undefined) {
+          setShowStats(true);
+          setShowInfo(true);
           setPlayInNba(true);
           setIsFullname(false);
           setIsName(false);
           setIsInNba(false);
-          setShowStats(true);
-          setShowInfo(true);
         } else {
-          setPlayerStats(response.data.data[0]);
-          setPlayInNba(false);
           setShowStats(false);
           setShowInfo(false);
+          setPlayInNba(false);
+          setPlayerStats(response.data.data[0]);
         }
       })
       .catch((err) => {
@@ -108,7 +116,7 @@ const PlayerInfo = () => {
               <label>Enter player's full name</label>
               <div
                 style={{
-                  marginRight: "1.5em",
+                  paddingRight: "2em",
                   display: "flex",
                   marginBottom: "5px",
                 }}
@@ -122,26 +130,32 @@ const PlayerInfo = () => {
                 />
                 <button type="submit">Show</button>
               </div>
-              {isName ? (
-                <p style={{ color: "rgb(114, 4, 4)" }}>
-                  Enter a player's name.
-                </p>
-              ) : null}
-              {isInNba ? (
-                <p style={{ color: "rgb(114, 4, 4)" }}>
-                  Player is not in the NBA.
-                </p>
-              ) : null}
-              {playInNba ? (
-                <p style={{ color: "rgb(114, 4, 4)" }}>
-                  Player did not participate in 2021/2022 NBA season.
-                </p>
-              ) : null}
-              {isFullname ? (
-                <p style={{ color: "rgb(114, 4, 4)" }}>
-                  Enter player's full name.
-                </p>
-              ) : null}
+              <div
+                style={{
+                  paddingRight: "2em",
+                }}
+              >
+                {isName ? (
+                  <p style={{ color: "rgb(114, 4, 4)" }}>
+                    Enter a player's name.
+                  </p>
+                ) : null}
+                {isInNba ? (
+                  <p style={{ color: "rgb(114, 4, 4)" }}>
+                    Player is not in the NBA.
+                  </p>
+                ) : null}
+                {playInNba ? (
+                  <p style={{ color: "rgb(114, 4, 4)" }}>
+                    Player did not participate in 2021/2022 NBA season.
+                  </p>
+                ) : null}
+                {isFullname ? (
+                  <p style={{ color: "rgb(114, 4, 4)" }}>
+                    Enter player's full name.
+                  </p>
+                ) : null}
+              </div>
             </div>
             <div className="img__container">
               <img
@@ -223,7 +237,7 @@ const PlayerInfo = () => {
       </form>
 
       <footer>
-        <p>&copy; Kaybangz built this...</p>
+        <p>&copy; Built by Kaybangz.</p>
       </footer>
     </div>
   );

@@ -18,25 +18,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 97vh;
+  height: 100vh;
   justify-content: space-between;
 }
 
 .container {
-  width: 450px;
+  width: 500px;
   margin: 1.3em auto;
 }
 
 .wrapper {
   width: 100%;
-  margin: 0 auto;
   background: rgb(53, 53, 238);
   box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
   border-radius: 10px;
 }
 
 .input__container {
-  padding: 12px 10px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +52,7 @@ body {
 
 .input__container label {
   font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .input__container button {
@@ -60,7 +60,7 @@ body {
   border: none;
   background: rgb(53, 53, 238);
   box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
-  padding: 8px 3px;
+  padding: 8px 5px;
   margin-left: 2px;
   color: white;
   border-radius: 5px;
@@ -78,8 +78,8 @@ body {
 }
 
 .img__container {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
 }
 
 main {
@@ -96,21 +96,73 @@ main {
   flex: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 450px) {
   .container {
-    width: 89%;
+    width: 350px;
+  }
+
+  .wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .input__container input {
+    width: 11em;
+  }
+
+  .input__container label {
+    font-size: 13px;
+  }
+
+  .img__container {
+    width: 105px;
+    height: 110px;
+  }
+
+  .flex__display {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex__display div {
+    margin-bottom: 0.6em;
+  }
+}
+
+@media (max-width: 370px) {
+  .container {
+    width: 320px;
   }
 
   .wrapper {
     width: 100%;
   }
 
-  .flex__display{
-      display: flex;
-      flex-direction: column;
+  .img__container {
+    width: 110px;
+    height: 100px;
   }
 
-  .flex__display div{
-      margin-bottom: .6em;
+  .flex__display {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex__display div {
+    margin-bottom: 0.6em;
+  }
+}
+
+@media (max-width: 330px) {
+  .container {
+    width: 295px;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+  .flex__display div {
+    margin-bottom: 0.6em;
   }
 }
