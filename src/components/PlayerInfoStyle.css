@@ -96,7 +96,7 @@ main {
   flex: 1;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 490px) {
   .container {
     width: 350px;
   }
