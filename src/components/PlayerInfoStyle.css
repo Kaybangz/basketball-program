@@ -24,10 +24,10 @@ body {
 }
 
 .container {
-  min-width: 95%;
-  width: 95%;
+  min-width: 96%;
+  width: 96%;
   max-width: 650px;
-  margin: 1.3em auto;
+  margin: 1.3em auto .3rem auto;
 }
 
 .wrapper {
@@ -55,6 +55,8 @@ body {
 .input__container label {
   font-size: 18px;
   margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .input__container button {
@@ -63,7 +65,7 @@ body {
   background: rgb(53, 53, 238);
   box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
   padding: 8px 5px;
-  margin-left: 2px;
+  margin-left: 5px;
   color: white;
   border-radius: 5px;
   font-weight: 600;
@@ -86,8 +88,8 @@ body {
 
 .input__container p{
   margin-top: 10px;
-  font-size: .8rem;
-  color: rgb(49, 2, 2);
+  font-size: .9rem;
+  color: rgb(37, 4, 4);
   font-weight: bolder;
 }
 
