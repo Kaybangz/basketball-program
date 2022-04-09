@@ -31,39 +31,6 @@ const PlayerInfo = () => {
     playerRef.current.focus();
   }, []);
 
-  //Create function to get player's info
-  const getPlayerInfo = () => {
-    axios(`https://www.balldontlie.io/api/v1/players?search=${nameInput}`)
-      .then(async (response) => {
-        if (response.data.data.length === 0) {
-          setShowInfo(true);
-          setShowStats(true);
-          setIsInNba(true);
-          setIsFullname(false);
-          setIsName(false);
-          setPlayInNba(false);
-        } else if (response.data.data.length > 1) {
-          setIsFullname(true);
-          setIsName(false);
-          setPlayInNba(false);
-          setIsInNba(false);
-        } else {
-          setShowInfo(false);
-          setShowStats(false);
-          setIsInNba(false);
-          setIsFullname(false);
-          //push the data gotten from the api to the playerInfo array
-          setPlayerInfo(response.data.data);
-
-          //Call the getPlayerStats function and pass the getPlayerInfo response as the playerID arguement
-          getPlayerStats(response.data.data[0].id);
-        }
-      })
-      .catch((err) => {
-        throw new Error();
-      });
-  };
-
   //Create function to get player stats
   //"playerID" is the name gotten from the getPlayerInfo function
   const getPlayerStats = (playerID) => {
@@ -83,6 +50,40 @@ const PlayerInfo = () => {
           setShowInfo(false);
           setPlayInNba(false);
           setPlayerStats(response.data.data[0]);
+        }
+      })
+      .catch((err) => {
+        throw new Error();
+      });
+  };
+
+  //Create function to get player's info
+  const getPlayerInfo = () => {
+    axios(`https://www.balldontlie.io/api/v1/players?search=${nameInput}`)
+      .then(async (response) => {
+        if (response.data.data.length === 0) {
+          setShowStats(true);
+          setShowInfo(true);
+          setIsInNba(true);
+          setIsFullname(false);
+          setIsName(false);
+          setPlayInNba(false);
+        } else if (response.data.data.length > 1) {
+          setIsFullname(true);
+          setIsName(false);
+          setPlayInNba(false);
+          setIsInNba(false);
+        } else {
+          setShowStats(false);
+          setShowInfo(false);
+          setIsInNba(false);
+          setIsFullname(false);
+
+          //Call the getPlayerStats function and pass the getPlayerInfo response as the playerID arguement
+          getPlayerStats(response.data.data[0].id);
+
+          //push the data gotten from the api to the playerInfo array
+          setPlayerInfo(response.data.data);
         }
       })
       .catch((err) => {
@@ -135,26 +136,12 @@ const PlayerInfo = () => {
                   paddingRight: "2em",
                 }}
               >
-                {isName ? (
-                  <p style={{ color: "rgb(114, 4, 4)" }}>
-                    Enter a player's name.
-                  </p>
-                ) : null}
-                {isInNba ? (
-                  <p style={{ color: "rgb(114, 4, 4)" }}>
-                    Player is not in the NBA.
-                  </p>
-                ) : null}
+                {isName ? <p>Enter a player's name.</p> : null}
+                {isInNba ? <p>Player is not in the NBA.</p> : null}
                 {playInNba ? (
-                  <p style={{ color: "rgb(114, 4, 4)" }}>
-                    Player did not participate in 2021/2022 NBA season.
-                  </p>
+                  <p>Player did not participate in 2021/2022 NBA season.</p>
                 ) : null}
-                {isFullname ? (
-                  <p style={{ color: "rgb(114, 4, 4)" }}>
-                    Enter player's full name.
-                  </p>
-                ) : null}
+                {isFullname ? <p>Enter player's full name.</p> : null}
               </div>
             </div>
             <div className="img__container">
@@ -179,7 +166,7 @@ const PlayerInfo = () => {
                   Player Info
                 </h2>
                 <div>
-                  {showInfo
+                  {showStats
                     ? null
                     : playerInfo.map((info) => {
                         return (

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +24,9 @@ body {
 }
 
 .container {
-  width: 500px;
+  min-width: 95%;
+  width: 95%;
+  max-width: 650px;
   margin: 1.3em auto;
 }
 
@@ -31,14 +34,13 @@ body {
   width: 100%;
   background: rgb(53, 53, 238);
   box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .input__container {
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 3fr 3fr;
 }
 
 .input__container input {
@@ -78,8 +80,15 @@ body {
 }
 
 .img__container {
-  width: 110px;
+  width: 100%;
   height: 110px;
+}
+
+.input__container p{
+  margin-top: 10px;
+  font-size: .8rem;
+  color: rgb(49, 2, 2);
+  font-weight: bolder;
 }
 
 main {
@@ -96,70 +105,25 @@ main {
   flex: 1;
 }
 
-@media (max-width: 490px) {
-  .container {
-    width: 350px;
+@media (max-width: 500px){
+  .flex__display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 1;
   }
 
-  .wrapper {
+  .img__container {
     width: 100%;
-    margin: 0 auto;
+    height: 90px;
   }
+}
 
-  .input__container input {
-    width: 11em;
-  }
+@media (max-width: 400px) {
 
   .input__container label {
     font-size: 13px;
-  }
-
-  .img__container {
-    width: 105px;
-    height: 110px;
-  }
-
-  .flex__display {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .flex__display div {
-    margin-bottom: 0.6em;
-  }
-}
-
-@media (max-width: 370px) {
-  .container {
-    width: 320px;
-  }
-
-  .wrapper {
-    width: 100%;
-  }
-
-  .img__container {
-    width: 110px;
-    height: 100px;
-  }
-
-  .flex__display {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .flex__display div {
-    margin-bottom: 0.6em;
-  }
-}
-
-@media (max-width: 330px) {
-  .container {
-    width: 295px;
-  }
-
-  .wrapper {
-    width: 100%;
   }
 
   .flex__display div {
