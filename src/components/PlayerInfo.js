@@ -11,11 +11,11 @@ const PlayerInfo = () => {
   //Create states for the input box and collecting the balldontlie api data
   const [nameInput, setNameInput] = useState("");
 
-  //State for collecting the playerInfo(in getPlayerInfo function)
-  const [playerInfo, setPlayerInfo] = useState([]);
-
   //State for collecting the playerStats(in getPlayerStats function)
   const [playerStats, setPlayerStats] = useState([]);
+
+  //State for collecting the playerInfo(in getPlayerInfo function)
+  const [playerInfo, setPlayerInfo] = useState([]);
 
   //Create states to manage the error messages displayed in the UI
   const [isName, setIsName] = useState(false);
@@ -145,11 +145,7 @@ const PlayerInfo = () => {
               </div>
             </div>
             <div className="img__container">
-              <img
-                src={nbalogo}
-                alt="nbalog"
-                style={{ width: "100%", height: "100% ", borderRadius: "8px" }}
-              />
+              <img src={nbalogo} alt="nbalog" />
             </div>
           </div>
 
@@ -161,12 +157,13 @@ const PlayerInfo = () => {
                     border: "1px solid rgb(1, 1, 110)",
                     padding: "3px",
                     borderRadius: "5px",
+                    marginBottom: "1rem",
                   }}
                 >
                   Player Info
                 </h2>
                 <div>
-                  {showStats
+                  {showStats && showInfo
                     ? null
                     : playerInfo.map((info) => {
                         return (
