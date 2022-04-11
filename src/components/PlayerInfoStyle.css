@@ -26,8 +26,8 @@ body {
 .container {
   min-width: 94%;
   width: 94%;
-  max-width: 650px;
-  margin: 1.3em auto 4px auto;
+  max-width: 600px;
+  margin: 1.3em auto 0 auto;
 }
 
 .wrapper {
@@ -103,6 +103,7 @@ body {
   font-size: .9rem;
   color: rgb(43, 1, 1);
   font-weight: bolder;
+  margin-bottom: 1rem;
 }
 
 main {

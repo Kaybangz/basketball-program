@@ -156,8 +156,7 @@ const PlayerInfo = () => {
                   style={{
                     border: "1px solid rgb(1, 1, 110)",
                     padding: "3px",
-                    borderRadius: "5px",
-                    marginBottom: "1rem",
+                    borderRadius: "5px"
                   }}
                 >
                   Player Info
