@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/basketball-program/static/css/main.1cbda132.css",
+    "main.css": "/basketball-program/static/css/main.fcb0355a.css",
     "main.js": "/basketball-program/static/js/main.80ae7b5a.js",
     "static/media/nbalogo.jpg": "/basketball-program/static/media/nbalogo.cecde128a96d65a83435.jpg",
     "index.html": "/basketball-program/index.html",
-    "main.1cbda132.css.map": "/basketball-program/static/css/main.1cbda132.css.map",
+    "main.fcb0355a.css.map": "/basketball-program/static/css/main.fcb0355a.css.map",
     "main.80ae7b5a.js.map": "/basketball-program/static/js/main.80ae7b5a.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cbda132.css",
+    "static/css/main.fcb0355a.css",
     "static/js/main.80ae7b5a.js"
   ]
 }
