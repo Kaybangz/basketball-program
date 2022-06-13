@@ -116,11 +116,7 @@ const PlayerInfo = () => {
             <div>
               <label>Enter player's full name</label>
               <div
-                style={{
-                  paddingRight: "2em",
-                  display: "flex",
-                  marginBottom: "5px",
-                }}
+                className="playerInputContainer"
               >
                 <input
                   ref={playerRef}

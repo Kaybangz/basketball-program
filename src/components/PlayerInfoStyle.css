@@ -9,25 +9,18 @@
 body {
   font-family: Poppins;
   background: rgb(53, 53, 238);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
 }
 
 .main__container {
+  width: 95%;
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  justify-content: space-between;
-}
-
-.container {
-  min-width: 94%;
-  width: 94%;
-  max-width: 600px;
-  margin: 1.3em auto 0 auto;
+  justify-content: center;
 }
 
 .wrapper {
@@ -43,11 +36,18 @@ body {
   grid-template-columns: 4fr 1fr;
 }
 
+.playerInputContainer{
+  width: 100%;
+  height: 40px;
+}
+
 .input__container input {
+  height: 100%;
   outline: none;
   border: none;
   background: rgb(53, 53, 238);
-  border-bottom: 1px solid rgb(4, 4, 165);
+  border: 1px solid rgb(4, 4, 165);
+  border-radius: 5px;
   padding: 5px;
   color: white;
   margin-top: 15px;
@@ -67,16 +67,17 @@ body {
 }
 
 .input__container button {
+  height: 100%;
   outline: none;
   border: none;
   background: rgb(53, 53, 238);
-  box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
+  box-shadow: 0 0 4px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
   padding: 5px 10px;
   margin-left: 5px;
   color: white;
   border-radius: 5px;
   font-weight: 600;
-  width: fit-content;
+  width: 4rem;
   font-family: "Poppins";
 }
 
@@ -103,11 +104,12 @@ body {
 }
 
 .input__container p{
+  width: 100%;
   margin-top: 10px;
   font-size: .9rem;
-  color: rgb(230, 16, 16);
+  color: rgb(112, 4, 4);
   font-weight: bolder;
-  margin-bottom: 1rem;
+  margin: 1.3rem 0 1rem 0;
 }
 
 main {
@@ -125,12 +127,23 @@ main {
   flex: 1;
 }
 
+footer{
+  position: absolute;
+  bottom: .6rem;
+  padding: 1rem 0 0 0;
+}
+
 @media (max-width: 500px){
+  .main__container {
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
   .flex__display {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex: 1;
   }
 
