@@ -26,7 +26,7 @@ body {
 .wrapper {
   width: 100%;
   background: rgb(53, 53, 238);
-  box-shadow: 4px 4px 8px rgb(4, 4, 165), 7px 7px 12px rgb(63, 63, 243);
+  box-shadow: 4px 4px 8px rgb(4, 4, 165);
   border-radius: 15px;
 }
 
@@ -41,7 +41,7 @@ body {
   height: 40px;
 }
 
-.input__container input {
+.playerInputContainer input {
   height: 100%;
   outline: none;
   border: none;
@@ -107,7 +107,7 @@ body {
   width: 100%;
   margin-top: 10px;
   font-size: .9rem;
-  color: rgb(112, 4, 4);
+  color: rgb(97, 41, 41);
   font-weight: bolder;
   margin: 1.3rem 0 1rem 0;
 }
@@ -128,7 +128,7 @@ main {
 }
 
 footer{
-  position: absolute;
+  position: fixed;
   bottom: .6rem;
   padding: 1rem 0 0 0;
 }
